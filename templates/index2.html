@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template is working</title>
+</head>
+<body>
+<h1>welcome to the text analyzer.Enter your text below!</h1>
+<form action='/analyze' method='get'>
+    <textarea name='text' style='margin: 0px; width: 1347px; height: 264px;'></textarea>
+    <input type='checkbox' name="removepunc"> Remove punctuation</input><br>
+    <input type='checkbox' name="fullcap"> Uppercase </input><br>
+    <input type='checkbox' name="newlineremover"> Remove New Line </input><br>
+    <input type='checkbox' name="spaceremover"> Remove Space </input><br>
+    <input type='checkbox' name="extraspaceremover"> Remove  Extra Space </input><br>
+    <input type='checkbox' name="charcount"> Count Total No Of Character </input><br>
+    <button type='submit'>Analyze text</button>
+</form>
+
+
+
+</body>
+</html>
