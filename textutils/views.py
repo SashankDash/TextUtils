@@ -23,37 +23,44 @@ def analyze(request):
         for char in djtext:
             if char not in punctuations:
                 analyzed += char
+
+        djtext =analyzed
         param = {'purpose': 'Removed Punctuation', 'analyzed_text': analyzed}
-    elif(fullcap == 'on'):
+        
+    if(fullcap == 'on'):
         analyzed = ""
         for char in djtext:
             analyzed += char.upper()
 
+        djtext =analyzed
         param = {'purpose' : 'changed to Uppercase','analyzed_text':analyzed}
-    elif(newlineremover == 'on'):
+    if(newlineremover == 'on'):
         analyzed = ""
         for char in djtext:
             if (char != '\n' and char !='\r'):
                 analyzed += char
-
+        djtext =analyzed
         param = {'purpose': 'New line removed', 'analyzed_text': analyzed}
-    elif(spaceremover == 'on'):
+    if(spaceremover == 'on'):
         analyzed = ""
         for char in djtext:
             if (char != ' '):
                 analyzed += char
-
+        djtext =analyzed
         param = {'purpose': 'Space removed', 'analyzed_text': analyzed}
 
-    elif (extraspaceremover == 'on'):
+    if (extraspaceremover == 'on'):
         analyzed = ""
         for index, char in enumerate(djtext):
          if not (djtext[index] == " " and djtext[index + 1] == " "):
             analyzed += char
 
-            param = {'purpose': 'total no of character', 'analyzed_text': analyzed}
-
+            param = {'purpose': 'extra space removed', 'analyzed_text': analyzed, }
+    
     return render(request,'analyze.html', param)
+
+    
+
 # def capitalizefirst(request):
 #     return HttpResponse("capitalize first<br> <a href = '/' >Back</a>")
 # def newlineremove(request):
